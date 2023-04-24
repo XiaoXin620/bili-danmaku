@@ -1,4 +1,5 @@
 import { rmSync } from 'node:fs'
+import { join } from 'node:path';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
@@ -67,6 +68,11 @@ export default defineConfig(({ command }) => {
         port: +url.port,
       }
     })(),
+    resolve: {
+      alias: {
+        '@': join(__dirname, './src')
+      }
+    },
     clearScreen: false,
   }
 })
