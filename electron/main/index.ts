@@ -2,7 +2,7 @@ import './initialize'
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { trayGenerator } from '../tray/tray-gen'
-import { showTransparentWin } from '../windows'
+import { showDanmakuWin, showTransparentWin } from '../windows'
 
 
 // The built directory structure
@@ -81,7 +81,8 @@ if (!app.requestSingleInstanceLock()) {
 
 app.whenReady().then(()=>{
   trayGenerator()
-  showTransparentWin()
+  // showTransparentWin()
+  showDanmakuWin()
 })
 
 app.on('window-all-closed', () => {

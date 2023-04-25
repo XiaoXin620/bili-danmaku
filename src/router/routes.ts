@@ -9,6 +9,14 @@ const routes: RouteRecordRaw[] = [
             title: '通知中心'
         },
         component: () => import('@/pages/transparent/index.vue')
+    },
+    {
+        path: '/danmaku',
+        name: 'Danmaku',
+        meta: {
+            title: '弹幕'
+        },
+        component: () => import('@/pages/danmaku/index.vue')
     }
 ]
 
