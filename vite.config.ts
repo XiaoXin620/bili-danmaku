@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
 import pkg from './package.json'
+import commonjs from 'vite-plugin-commonjs'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -60,6 +61,7 @@ export default defineConfig(({ command }) => {
       ]),
       // Use Node.js API in the Renderer-process
       renderer(),
+      commonjs()
     ],
     server: process.env.VSCODE_DEBUG && (() => {
       const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)

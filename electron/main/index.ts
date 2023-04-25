@@ -81,7 +81,7 @@ if (!app.requestSingleInstanceLock()) {
 
 app.whenReady().then(()=>{
   trayGenerator()
-  // showTransparentWin()
+  showTransparentWin()
   showDanmakuWin()
 })
 

@@ -6,7 +6,25 @@
     </div>
 </template>
 
+<style scoped>
+.danmaku__inner {
+
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.danmu {
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 30px;
+}
+</style>
+
 <script setup lang="ts">
+
 import { getCurrentWindow } from '@electron/remote';
 import { createSocket } from '../socket'
 import axios from 'axios';
@@ -14,7 +32,7 @@ const api = axios.create({
     baseURL: "http://localhost:3000",
 })
 const startConnet = () => {
-    console.log(12313)
+    // console.log(12313)
     api.post("/getAuth", {
         appKey: '22ylM5epXZwnKJdHwecotNq2',
         appSecret: 'Zu8Bz8hsefCDr64AT2PEQsSNOSCmvH',
@@ -59,19 +77,3 @@ const startConnet = () => {
 
 </script>
 
-<style scoped>
-.danmaku__inner {
-
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.danmu {
-    -webkit-app-region: drag;
-    width: 100%;
-    height: 30px;
-}
-</style>

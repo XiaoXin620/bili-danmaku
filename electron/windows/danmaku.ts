@@ -5,7 +5,7 @@ export const getDanmakuWin = () => {
         width: 500,
         height: 500,
         alwaysOnTop: true,
-        transparent: true, // process.platform !== 'win32',
+        // transparent: true, // process.platform !== 'win32',
         frame: false,
         opacity: 1,
         hasShadow: false,
