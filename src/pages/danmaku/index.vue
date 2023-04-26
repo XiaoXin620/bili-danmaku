@@ -8,7 +8,6 @@
 
 <style scoped>
 .danmaku__inner {
-
     display: flex;
     width: 100%;
     height: 100vh;
@@ -33,10 +32,7 @@ const api = axios.create({
 })
 const startConnet = () => {
     // console.log(12313)
-    api.post("/getAuth", {
-        appKey: '22ylM5epXZwnKJdHwecotNq2',
-        appSecret: 'Zu8Bz8hsefCDr64AT2PEQsSNOSCmvH',
-    })
+    api.post("/getAuth", {})
         .then(({ data }) => {
             console.log("-----鉴权成功-----")
 
@@ -55,25 +51,6 @@ const startConnet = () => {
         //     console.log("-----鉴权失败-----")
         // })
 }
-// {
-//     "anchor_info": {
-//         "room_id": 5877261,
-//         "uface": "https://i2.hdslb.com/bfs/face/024fcf3eba8f8b6fe3718cfb6f8fbf0477dc2b3e.jpg",
-//         "uid": 23031620,
-//         "uname": "喵嗷呼"
-//     },
-//     "game_info": {
-//         "game_id": ""
-//     },
-//     "websocket_info": {
-//         "auth_body": "{\"roomid\":5877261,\"protover\":2,\"uid\":1704161156115981,\"key\":\"23MwEPuwNHNnmAypfOHrVHn_OWeX9R60SRekm4tuxIY8yuYAI-H7T2SlYEsgvpZNMKzZp_qN-nydF7GGUudcr1eehiJXnlBsT_3gxEQjRD5LL3ktbxNFteEYpfx_BXDnru_J97luQQpiZ_xnjR4Pi0Gn2dtbG5Q=\",\"group\":\"open\"}",
-//         "wss_link": [
-//             "wss://hw-sh-live-comet-05.chat.bilibili.com:443/sub",
-//             "wss://hw-gz-live-comet-05.chat.bilibili.com:443/sub",
-//             "wss://broadcastlv.chat.bilibili.com:443/sub"
-//         ]
-//     }
-// }
 
 </script>
 

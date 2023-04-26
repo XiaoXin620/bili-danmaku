@@ -1,7 +1,5 @@
 //@ts-ignore
-import   DanmakuWebSocket  from "./danmaku-websocket.min.js"
-
-// let  DanmakuWebSocket = require("./danmaku-websocket.min.js")
+import DanmakuWebSocket from "./danmaku-websocket.min.js"
 
 let ws: DanmakuWebSocket;
 
@@ -14,18 +12,18 @@ function createSocket(authBody: string, wssLinks: string[]) {
     const opt = {
         ...getWebSocketConfig(authBody, wssLinks),
         // 收到消息,
-        onReceivedMessage: (res:any) => {
+        onReceivedMessage: (res: any) => {
             console.log(res)
         },
         // 收到心跳处理回调
-        onHeartBeatReply: (data:any) => console.log("收到心跳处理回调:", data),
-        onError: (data:any) => console.log("error", data),
+        onHeartBeatReply: (data: any) => console.log("收到心跳处理回调:", data),
+        onError: (data: any) => console.log("error", data),
         onListConnectError: () => {
             console.log("list connect error")
             destroySocket()
         },
     }
- 
+
     if (!ws) {
         ws = new DanmakuWebSocket(opt)
     }
