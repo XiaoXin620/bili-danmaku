@@ -1,4 +1,4 @@
-import { BrowserWindow } from 'electron';
+import { BrowserWindow, screen } from 'electron';
 
 export const getDanmakuWin = () => {
     const danmakuWin = new BrowserWindow({
@@ -27,5 +27,8 @@ export const getDanmakuWin = () => {
         cb({ requestHeaders });
     });
 
+    const workAreaSize =screen.getPrimaryDisplay().workAreaSize
+    let workWidth = workAreaSize.width
+    danmakuWin.setPosition(workWidth-500,0)
     return danmakuWin;
 };

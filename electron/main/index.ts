@@ -3,6 +3,7 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { trayGenerator } from '../tray/tray-gen'
 import { showDanmakuWin, showTransparentWin } from '../windows'
+import expressTest from '../backed/express-test'
 
 
 // The built directory structure
@@ -20,6 +21,17 @@ import { showDanmakuWin, showTransparentWin } from '../windows'
 // process.env.PUBLIC = process.env.VITE_DEV_SERVER_URL
 //   ? join(process.env.DIST_ELECTRON, '../public')
 //   : process.env.DIST
+// const express = require('express')
+// const expressApp = express()
+// const port = 4000
+// expressApp.get('/', (req:any, res:any) => {
+//   res.send('Hello World!')
+// })
+
+// expressApp.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
+
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -79,9 +91,10 @@ if (!app.requestSingleInstanceLock()) {
 // }
 
 
+expressTest()
 app.whenReady().then(()=>{
   trayGenerator()
-  showTransparentWin()
+  // showTransparentWin()
   showDanmakuWin()
 })
 
