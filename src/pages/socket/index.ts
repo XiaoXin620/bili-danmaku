@@ -8,13 +8,11 @@ let ws: DanmakuWebSocket;
  * @param authBody
  * @param wssLinks
  */
-function createSocket(authBody: string, wssLinks: string[]) {
+function createSocket(authBody: string, wssLinks: string[],onReceivedMessage:Function) {
     const opt = {
         ...getWebSocketConfig(authBody, wssLinks),
         // 收到消息,
-        onReceivedMessage: (res: any) => {
-            console.log(res)
-        },
+        onReceivedMessage,
         // 收到心跳处理回调
         onHeartBeatReply: (data: any) => console.log("收到心跳处理回调:", data),
         onError: (data: any) => console.log("error", data),
